@@ -4,35 +4,33 @@ import java.util.ArrayList;
 
 public class SimpleDotCom {
 
-    private ArrayList<String> locationsCells;
-    //int[] locationsCells;
-    int numOfHits;
+    int[] locationCells;
+    int numOfHits = 0;
 
-    public void setLocationCells(ArrayList<String> loc)
+    public void setLocationCells(int[] loc)
     {
-        locationsCells = loc;
+        locationCells = loc;
     }
 
 
-    public String checkYourself(String userInput)
-    {
+    public String checkYourself(String userInput) {
 
+
+        int guess = Integer.parseInt(userInput);
         String result = "Мимо";
-        int index = locationsCells.indexOf(userInput);
-            if(index >= 0)
-            {
-                locationsCells.remove(index);
 
-                if(locationsCells.isEmpty()){
-                    result = "Потопил";
-                }
-                else{
-                    result = "Потопил";
-                }
-
+        for (int cell : locationCells) {
+            if (guess == cell) {
+                result = "Попал";
+                numOfHits++;
+                break;
             }
-
-
+        }
+        if (numOfHits == locationCells.length)
+        {
+            result = "Убил";
+        }
+        System.out.println(result);
         return result;
     }
 }
