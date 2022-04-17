@@ -21,13 +21,13 @@ public class MiniMiniMusicApp {
             Track track = seq.createTrack();
 
             ShortMessage a = new ShortMessage();
-            a.setMessage(144,1,44,100);
-            MidiEvent noteOn = new MidiEvent(a,1);
+            a.setMessage(192,1,102,100);
+            MidiEvent noteOn = new MidiEvent(a,3);
             track.add(noteOn);
 
             ShortMessage b = new ShortMessage();
-            b.setMessage(128,1,44,100);
-            MidiEvent noteOff = new MidiEvent(a,1);
+            b.setMessage(192,1,102,100);
+            MidiEvent noteOff = new MidiEvent(a,3);
             track.add(noteOff);
 
             player.setSequence(seq);
